@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contract-extractor"
+version = "0.1.0"
+description = "Small language models fine-tuned to extract CUAD contract clauses as structured JSON."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "datasets",
+    "numpy",
+    "pyyaml",
+    "torch",
+    "tqdm",
+    "transformers",
+    "peft",
+    "xgrammar",
+]
+
+[project.optional-dependencies]
+train = ["unsloth", "trl", "bitsandbytes", "accelerate"]
+eval = ["pandas", "matplotlib"]
+app = ["gradio"]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+src = ["src", "scripts", "tests", "app"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
