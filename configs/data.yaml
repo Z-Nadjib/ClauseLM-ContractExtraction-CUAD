@@ -1,0 +1,9 @@
+raw_dir: data/raw
+processed_dir: data/processed
+chunk_size: 6000          # characters per window (about 1.5k tokens)
+chunk_overlap: 600        # characters shared by consecutive windows
+min_clip_coverage: 0.5    # keep a boundary-crossing span if at least half of it is visible
+min_clip_chars: 300       # or if at least this many characters are visible
+validation_fraction: 0.1  # share of the official train contracts held out for validation
+negative_keep_ratio: 0.5  # share of training chunks without any clause that are kept
+seed: 42
