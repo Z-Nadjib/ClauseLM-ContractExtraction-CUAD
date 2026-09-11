@@ -1,0 +1,40 @@
+split: test
+max_documents: null        # set an integer for a quick partial run
+match_threshold: 0.5       # word-level Jaccard required to count a span as correct
+output_dir: reports/results
+
+cost:
+  local_gpu_hourly_usd: 0.40   # on-demand rental price assumed for one 16 GB GPU (RTX 5080 class)
+  local_gpu_power_w: 360       # board power limit of the RTX 5080, an upper bound on draw
+  electricity_usd_per_kwh: 0.25
+
+systems:
+  qwen2.5-1.5b-cuad:
+    type: hf
+    model: outputs/qwen2.5-1.5b-cuad/merged
+    constrained: true
+    batch_size: 16
+  qwen2.5-1.5b-cuad-unconstrained:
+    type: hf
+    model: outputs/qwen2.5-1.5b-cuad/merged
+    constrained: false
+    batch_size: 16
+  qwen2.5-1.5b-zero-shot:
+    type: hf
+    model: unsloth/Qwen2.5-1.5B-Instruct
+    constrained: true
+    batch_size: 16
+  llama3.2-3b-cuad:
+    type: hf
+    model: outputs/llama3.2-3b-cuad/merged
+    constrained: true
+    batch_size: 8
+  llama3.2-3b-zero-shot:
+    type: hf
+    model: unsloth/Llama-3.2-3B-Instruct
+    constrained: true
+    batch_size: 8
+  legal-bert-ner:
+    type: bert
+    model: outputs/legal-bert-cuad-ner/final
+    batch_size: 32
