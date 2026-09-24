@@ -1,9 +1,10 @@
 """Local generation backend: transformers + optional grammar-constrained decoding.
 
 Decoding is greedy with no repetition penalty, since outputs are copies of the input text.
-When ``constrained`` is enabled, an xgrammar logits processor compiled from the extraction
-JSON Schema masks every token that would break the schema, so each completed generation is
-a valid JSON object with known keys and list-of-string values.
+When ``constrained`` is enabled, a grammar compiled from the extraction JSON Schema masks
+every token that would break the schema, so each completed generation is a valid JSON
+object with known keys and list-of-string values. Generations stopped early (degenerate
+loop or token budget) are closed after their last complete span.
 """
 
 from __future__ import annotations
@@ -14,6 +15,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from contract_extractor.inference.base import ChunkResult
+from contract_extractor.inference.guards import GuardedLogitsProcessor, close_truncated_json
 from contract_extractor.prompts import build_messages
 from contract_extractor.schema import JSON_SEPARATORS, json_schema, parse_output
 
@@ -67,11 +69,11 @@ class HFBackend:
         encoded = self.tokenizer(self._prompts(texts), return_tensors="pt", padding=True, add_special_tokens=False).to(
             self.device
         )
-        logits_processor = []
-        if self.compiled_grammar is not None:
-            import xgrammar as xgr
-
-            logits_processor.append(xgr.contrib.hf.LogitsProcessor(self.compiled_grammar))
+        guard = GuardedLogitsProcessor(
+            self.compiled_grammar,
+            eos_token_id=self._eos_token_ids()[0],
+            prompt_length=encoded["input_ids"].shape[1],
+        )
         generated = self.model.generate(
             **encoded,
             max_new_tokens=self.max_new_tokens,
@@ -80,7 +82,7 @@ class HFBackend:
             top_p=None,
             top_k=None,
             repetition_penalty=1.0,
-            logits_processor=logits_processor,
+            logits_processor=[guard],
             pad_token_id=self.tokenizer.pad_token_id,
         )
         new_tokens = generated[:, encoded["input_ids"].shape[1] :]
@@ -90,11 +92,17 @@ class HFBackend:
             length = next((i for i, token in enumerate(row) if token in stop_ids), len(row))
             raw = self.tokenizer.decode(row[:length], skip_special_tokens=True).strip()
             extraction, valid = parse_output(raw)
+            repaired = False
+            if not valid and self.compiled_grammar is not None:
+                closed = close_truncated_json(raw)
+                if closed is not None:
+                    extraction, repaired = parse_output(closed)
             results.append(
                 ChunkResult(
                     raw=raw,
                     extraction=extraction,
                     valid=valid,
+                    repaired=repaired,
                     input_tokens=int(mask.sum()),
                     output_tokens=length,
                 )
