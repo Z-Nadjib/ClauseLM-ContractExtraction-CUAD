@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="50" viewBox="0 0 820 50" role="img" aria-label="Fine-tuned 1.5B and 3B models extract 41 clause types / Grammar-constrained decoding: every output is valid JSON / 61.7 span F1 on the CUAD test set, trained on one 16 GB GPU">
+<defs>
+<clipPath id="c0"><rect x="105.9" y="0" width="0" height="50">
+  <animate attributeName="width" values="0;0;608.2;608.2;0;0" keyTimes="0.0000;0.0000;0.1500;0.2833;0.3083;1.0000" dur="12.0s" repeatCount="indefinite"/>
+</rect></clipPath>
+<clipPath id="c1"><rect x="88.8" y="0" width="0" height="50">
+  <animate attributeName="width" values="0;0;642.4;642.4;0;0" keyTimes="0.0000;0.3333;0.4833;0.6167;0.6417;1.0000" dur="12.0s" repeatCount="indefinite"/>
+</rect></clipPath>
+<clipPath id="c2"><rect x="71.7" y="0" width="0" height="50">
+  <animate attributeName="width" values="0;0;676.6;676.6;0;0" keyTimes="0.0000;0.6667;0.8167;0.9500;0.9750;1.0000" dur="12.0s" repeatCount="indefinite"/>
+</rect></clipPath>
+</defs>
+<text x="105.9" y="32" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,Liberation Mono,monospace" font-size="19" fill="#f5b841" textLength="604.2" lengthAdjust="spacingAndGlyphs" clip-path="url(#c0)">Fine-tuned 1.5B and 3B models extract 41 clause types</text>
+<rect x="105.9" y="13" width="2.5" height="24" fill="#f5b841" opacity="0">
+  <animate attributeName="x" values="105.9;105.9;714.1;714.1;105.9;105.9" keyTimes="0.0000;0.0000;0.1500;0.2833;0.3083;1.0000" dur="12.0s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.0000;0.1500;0.2833;0.3083;1.0000" dur="12.0s" repeatCount="indefinite"/>
+</rect>
+<text x="88.8" y="32" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,Liberation Mono,monospace" font-size="19" fill="#f5b841" textLength="638.4" lengthAdjust="spacingAndGlyphs" clip-path="url(#c1)">Grammar-constrained decoding: every output is valid JSON</text>
+<rect x="88.8" y="13" width="2.5" height="24" fill="#f5b841" opacity="0">
+  <animate attributeName="x" values="88.8;88.8;731.2;731.2;88.8;88.8" keyTimes="0.0000;0.3333;0.4833;0.6167;0.6417;1.0000" dur="12.0s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3333;0.4833;0.6167;0.6417;1.0000" dur="12.0s" repeatCount="indefinite"/>
+</rect>
+<text x="71.7" y="32" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,Liberation Mono,monospace" font-size="19" fill="#f5b841" textLength="672.6" lengthAdjust="spacingAndGlyphs" clip-path="url(#c2)">61.7 span F1 on the CUAD test set, trained on one 16 GB GPU</text>
+<rect x="71.7" y="13" width="2.5" height="24" fill="#f5b841" opacity="0">
+  <animate attributeName="x" values="71.7;71.7;748.3;748.3;71.7;71.7" keyTimes="0.0000;0.6667;0.8167;0.9500;0.9750;1.0000" dur="12.0s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.6667;0.8167;0.9500;0.9750;1.0000" dur="12.0s" repeatCount="indefinite"/>
+</rect>
+</svg>

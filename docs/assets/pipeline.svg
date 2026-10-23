@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="270" viewBox="0 0 1280 270" role="img" aria-label="Pipeline from CUAD contracts to evaluation">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080c1f"/><stop offset="0.6" stop-color="#11163a"/><stop offset="1" stop-color="#1f1645"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="frame"><rect width="1280" height="270" rx="20"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1280" height="270" fill="url(#bg)"/>
+    <g filter="url(#blur)" opacity="0.55">
+      <ellipse cx="1050" cy="54" rx="230" ry="94" fill="#f5b841" opacity="0.35">
+        <animateTransform attributeName="transform" type="translate" values="0 0;-90 40;0 0" dur="16s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="192" cy="256" rx="256" ry="108" fill="#3b82f6" opacity="0.45">
+        <animateTransform attributeName="transform" type="translate" values="0 0;110 -40;0 0" dur="19s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="640" cy="135" rx="205" ry="81" fill="#a78bfa" opacity="0.25">
+        <animateTransform attributeName="transform" type="translate" values="0 0;60 30;-40 -20;0 0" dur="22s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+    <rect width="1280" height="270" fill="url(#grid)"/>
+    <circle cx="581" cy="199" r="1.6" fill="#f5b841" opacity="0"><animate attributeName="cy" values="199;46" dur="9.8s" begin="-5.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="9.8s" begin="-5.0s" repeatCount="indefinite"/></circle><circle cx="249" cy="191" r="1.3" fill="#f5b841" opacity="0"><animate attributeName="cy" values="191;68" dur="11.8s" begin="-1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="11.8s" begin="-1.1s" repeatCount="indefinite"/></circle><circle cx="132" cy="239" r="1.3" fill="#f8fafc" opacity="0"><animate attributeName="cy" values="239;110" dur="7.3s" begin="-7.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="7.3s" begin="-7.1s" repeatCount="indefinite"/></circle><circle cx="936" cy="213" r="1.0" fill="#f5b841" opacity="0"><animate attributeName="cy" values="213;91" dur="12.0s" begin="-0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="12.0s" begin="-0.8s" repeatCount="indefinite"/></circle><circle cx="1111" cy="205" r="1.0" fill="#f8fafc" opacity="0"><animate attributeName="cy" values="205;67" dur="9.0s" begin="-5.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="9.0s" begin="-5.3s" repeatCount="indefinite"/></circle><circle cx="310" cy="156" r="1.3" fill="#f8fafc" opacity="0"><animate attributeName="cy" values="156;95" dur="7.5s" begin="-4.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="7.5s" begin="-4.9s" repeatCount="indefinite"/></circle><circle cx="1255" cy="244" r="1.3" fill="#f5b841" opacity="0"><animate attributeName="cy" values="244;113" dur="8.9s" begin="-2.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="8.9s" begin="-2.0s" repeatCount="indefinite"/></circle><circle cx="107" cy="232" r="1.0" fill="#f8fafc" opacity="0"><animate attributeName="cy" values="232;132" dur="12.1s" begin="-4.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="12.1s" begin="-4.7s" repeatCount="indefinite"/></circle><circle cx="21" cy="142" r="1.3" fill="#60a5fa" opacity="0"><animate attributeName="cy" values="142;-9" dur="9.8s" begin="-9.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="9.8s" begin="-9.6s" repeatCount="indefinite"/></circle><circle cx="111" cy="210" r="1.3" fill="#f5b841" opacity="0"><animate attributeName="cy" values="210;72" dur="8.6s" begin="-0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.7;0" dur="8.6s" begin="-0.8s" repeatCount="indefinite"/></circle>
+  </g>
+  <rect x="0.5" y="0.5" width="1279" height="269" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.08"/><text x="640.0" y="58" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="24" font-weight="800" fill="#f8fafc">From a contract to a validated JSON extraction</text><path d="M130.0 162.0 H1150.0" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.1000;1" dur="1.00s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0" keyTimes="0;0.1000;1" dur="1.00s" fill="freeze" calcMode="spline" keySplines="0 0 1 1;0.2 0.8 0.2 1"/>
+    <rect x="46.0" y="104" width="168" height="116" rx="16" fill="#121735" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.5"/>
+    <rect x="46.0" y="104" width="168" height="116" rx="16" fill="#60a5fa" fill-opacity="0" stroke="#60a5fa" stroke-width="2" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;0;0" keyTimes="0;0.000;0.050;0.200;1" dur="6.0s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="0;0;0.1;0;0" keyTimes="0;0.000;0.050;0.200;1" dur="6.0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="130.0" y="128" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#60a5fa" letter-spacing="1.5">01</text>
+    <text x="130.0" y="158" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#f8fafc">CUAD</text>
+    <text x="130.0" y="184" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">510 contracts</text>
+    <text x="130.0" y="203" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">41 clause types</text>
+  </g><path d="M219.0 162.0 H239.0" stroke="#f5b841" stroke-width="2" stroke-dasharray="3 5" fill="none" opacity="0.8"><animate attributeName="stroke-dashoffset" from="16" to="0" dur="0.8s" repeatCount="indefinite"/></path><path d="M238.0 157.0 L245.0 162.0 L238.0 167.0" stroke="#f5b841" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.1964;1" dur="1.12s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0" keyTimes="0;0.1964;1" dur="1.12s" fill="freeze" calcMode="spline" keySplines="0 0 1 1;0.2 0.8 0.2 1"/>
+    <rect x="250.0" y="104" width="168" height="116" rx="16" fill="#121735" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.5"/>
+    <rect x="250.0" y="104" width="168" height="116" rx="16" fill="#60a5fa" fill-opacity="0" stroke="#60a5fa" stroke-width="2" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;0;0" keyTimes="0;0.147;0.217;0.367;1" dur="6.0s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="0;0;0.1;0;0" keyTimes="0;0.147;0.217;0.367;1" dur="6.0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="334.0" y="128" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#60a5fa" letter-spacing="1.5">02</text>
+    <text x="334.0" y="158" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#f8fafc">Windows</text>
+    <text x="334.0" y="184" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">6,000 characters</text>
+    <text x="334.0" y="203" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">600 overlap</text>
+  </g><path d="M423.0 162.0 H443.0" stroke="#f5b841" stroke-width="2" stroke-dasharray="3 5" fill="none" opacity="0.8"><animate attributeName="stroke-dashoffset" from="16" to="0" dur="0.8s" repeatCount="indefinite"/></path><path d="M442.0 157.0 L449.0 162.0 L442.0 167.0" stroke="#f5b841" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.2742;1" dur="1.24s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0" keyTimes="0;0.2742;1" dur="1.24s" fill="freeze" calcMode="spline" keySplines="0 0 1 1;0.2 0.8 0.2 1"/>
+    <rect x="454.0" y="104" width="168" height="116" rx="16" fill="#121735" stroke="#f5b841" stroke-opacity="0.35" stroke-width="1.5"/>
+    <rect x="454.0" y="104" width="168" height="116" rx="16" fill="#f5b841" fill-opacity="0" stroke="#f5b841" stroke-width="2" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;0;0" keyTimes="0;0.313;0.383;0.533;1" dur="6.0s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="0;0;0.1;0;0" keyTimes="0;0.313;0.383;0.533;1" dur="6.0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="538.0" y="128" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#f5b841" letter-spacing="1.5">03</text>
+    <text x="538.0" y="158" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#f8fafc">Small LM</text>
+    <text x="538.0" y="184" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">QLoRA adapter</text>
+    <text x="538.0" y="203" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">1.5B or 3B</text>
+  </g><path d="M627.0 162.0 H647.0" stroke="#f5b841" stroke-width="2" stroke-dasharray="3 5" fill="none" opacity="0.8"><animate attributeName="stroke-dashoffset" from="16" to="0" dur="0.8s" repeatCount="indefinite"/></path><path d="M646.0 157.0 L653.0 162.0 L646.0 167.0" stroke="#f5b841" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.3382;1" dur="1.36s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0" keyTimes="0;0.3382;1" dur="1.36s" fill="freeze" calcMode="spline" keySplines="0 0 1 1;0.2 0.8 0.2 1"/>
+    <rect x="658.0" y="104" width="168" height="116" rx="16" fill="#121735" stroke="#f5b841" stroke-opacity="0.35" stroke-width="1.5"/>
+    <rect x="658.0" y="104" width="168" height="116" rx="16" fill="#f5b841" fill-opacity="0" stroke="#f5b841" stroke-width="2" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;0;0" keyTimes="0;0.480;0.550;0.700;1" dur="6.0s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="0;0;0.1;0;0" keyTimes="0;0.480;0.550;0.700;1" dur="6.0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="742.0" y="128" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#f5b841" letter-spacing="1.5">04</text>
+    <text x="742.0" y="158" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#f8fafc">Grammar</text>
+    <text x="742.0" y="184" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">JSON Schema</text>
+    <text x="742.0" y="203" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">xgrammar mask</text>
+  </g><path d="M831.0 162.0 H851.0" stroke="#f5b841" stroke-width="2" stroke-dasharray="3 5" fill="none" opacity="0.8"><animate attributeName="stroke-dashoffset" from="16" to="0" dur="0.8s" repeatCount="indefinite"/></path><path d="M850.0 157.0 L857.0 162.0 L850.0 167.0" stroke="#f5b841" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.3919;1" dur="1.48s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0" keyTimes="0;0.3919;1" dur="1.48s" fill="freeze" calcMode="spline" keySplines="0 0 1 1;0.2 0.8 0.2 1"/>
+    <rect x="862.0" y="104" width="168" height="116" rx="16" fill="#121735" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.5"/>
+    <rect x="862.0" y="104" width="168" height="116" rx="16" fill="#60a5fa" fill-opacity="0" stroke="#60a5fa" stroke-width="2" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;0;0" keyTimes="0;0.647;0.717;0.867;1" dur="6.0s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="0;0;0.1;0;0" keyTimes="0;0.647;0.717;0.867;1" dur="6.0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="946.0" y="128" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#60a5fa" letter-spacing="1.5">05</text>
+    <text x="946.0" y="158" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#f8fafc">Merge</text>
+    <text x="946.0" y="184" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">document JSON</text>
+    <text x="946.0" y="203" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">offset unions</text>
+  </g><path d="M1035.0 162.0 H1055.0" stroke="#f5b841" stroke-width="2" stroke-dasharray="3 5" fill="none" opacity="0.8"><animate attributeName="stroke-dashoffset" from="16" to="0" dur="0.8s" repeatCount="indefinite"/></path><path d="M1054.0 157.0 L1061.0 162.0 L1054.0 167.0" stroke="#f5b841" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.4375;1" dur="1.60s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 12;0 12;0 0" keyTimes="0;0.4375;1" dur="1.60s" fill="freeze" calcMode="spline" keySplines="0 0 1 1;0.2 0.8 0.2 1"/>
+    <rect x="1066.0" y="104" width="168" height="116" rx="16" fill="#121735" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.5"/>
+    <rect x="1066.0" y="104" width="168" height="116" rx="16" fill="#60a5fa" fill-opacity="0" stroke="#60a5fa" stroke-width="2" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;0;0" keyTimes="0;0.813;0.883;1.033;1" dur="6.0s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="0;0;0.1;0;0" keyTimes="0;0.813;0.883;1.033;1" dur="6.0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="1150.0" y="128" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#60a5fa" letter-spacing="1.5">06</text>
+    <text x="1150.0" y="158" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#f8fafc">Evaluate</text>
+    <text x="1150.0" y="184" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">span F1</text>
+    <text x="1150.0" y="203" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" fill="#a9afd2">latency, cost</text>
+  </g><path d="M36.0 242 H1244.0" stroke="url(#acc)" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="acc" x1="0" x2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#f5b841"/></linearGradient></defs><circle r="5" fill="#f5b841" filter="url(#glow)"><animateMotion path="M36.0 242 H1244.0" dur="6.0s" repeatCount="indefinite"/></circle></svg>
