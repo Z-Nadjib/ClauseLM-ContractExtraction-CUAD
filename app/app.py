@@ -1,7 +1,7 @@
-"""Gradio demo: paste a contract, get the extracted clauses as JSON.
+"""Local Gradio demo: paste a contract, get the extracted clauses as JSON.
 
-Runs on a GPU when available (including Hugging Face ZeroGPU Spaces) and falls back to CPU.
-The model is read from the ``MODEL_ID`` environment variable.
+Runs on a GPU when available and falls back to CPU. The model is read from the ``MODEL_ID``
+environment variable and defaults to the fine-tuned Qwen2.5-1.5B published on the Hub.
 """
 
 from __future__ import annotations
@@ -17,22 +17,12 @@ from contract_extractor.inference.base import ChunkedExtractor
 from contract_extractor.inference.hf_backend import HFBackend
 from contract_extractor.schema import KEY_TO_FIELD
 
-MODEL_ID = os.environ.get("MODEL_ID", "outputs/qwen2.5-1.5b-cuad/merged")
+MODEL_ID = os.environ.get("MODEL_ID", "Z-Nadjib/ClauseLM-Qwen2.5-1.5B")
 CHUNK_SIZE = 6000
 CHUNK_OVERLAP = 600
 MAX_CHARS_CPU = 30_000
 MAX_CHARS_GPU = 400_000
 EXAMPLES_DIR = Path(__file__).parent / "examples"
-
-try:
-    import spaces
-
-    gpu = spaces.GPU(duration=120)
-except ImportError:
-
-    def gpu(fn):
-        return fn
-
 
 backend = HFBackend(
     MODEL_ID, constrained=True, max_new_tokens=2048, device="cuda" if torch.cuda.is_available() else None
@@ -40,7 +30,6 @@ backend = HFBackend(
 extractor = ChunkedExtractor(backend, CHUNK_SIZE, CHUNK_OVERLAP, batch_size=8)
 
 
-@gpu
 def run(contract: str, file_path: str | None):
     if file_path:
         contract = Path(file_path).read_text(encoding="utf-8", errors="ignore")

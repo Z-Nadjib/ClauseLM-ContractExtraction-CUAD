@@ -1,7 +1,0 @@
-torch
-transformers==5.17.0
-accelerate
-peft
-xgrammar==0.2.8
-numpy
-pyyaml
