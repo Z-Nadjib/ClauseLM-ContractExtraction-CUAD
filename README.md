@@ -19,6 +19,10 @@
   <img src="docs/assets/badges/xgrammar.svg" alt="xgrammar"/>
   <img src="docs/assets/badges/license.svg" alt="Apache 2.0 license"/>
 </p>
+<p>
+  <a href="https://huggingface.co/Z-Nadjib/Llama-3.2-3B-ClauseLM"><img src="docs/assets/badges/hf-llama.svg" alt="Llama-3.2-3B-ClauseLM on Hugging Face"/></a>
+  <a href="https://huggingface.co/Z-Nadjib/ClauseLM-Qwen2.5-1.5B"><img src="docs/assets/badges/hf-qwen.svg" alt="ClauseLM-Qwen2.5-1.5B on Hugging Face"/></a>
+</p>
 
 <p>
   <a href="#results"><b>Results</b></a> &nbsp;|&nbsp;
@@ -26,7 +30,7 @@
   <a href="#usage"><b>Usage</b></a> &nbsp;|&nbsp;
   <a href="#configuration"><b>Configuration</b></a> &nbsp;|&nbsp;
   <a href="#method"><b>Method</b></a> &nbsp;|&nbsp;
-  <a href="#model-and-demo"><b>Model and demo</b></a> &nbsp;|&nbsp;
+  <a href="#models"><b>Models</b></a> &nbsp;|&nbsp;
   <a href="#citation"><b>Citation</b></a>
 </p>
 
@@ -42,10 +46,11 @@ model returns the passages of the contract that belong to it, copied verbatim so
 prediction can be traced back to the source text. Everything runs locally on a single 16 GB GPU.
 The repository contains the data pipeline, the QLoRA training code, the grammar-constrained
 inference, the evaluation against zero-shot and BERT baselines, the result tables and figures,
-two model cards and a Gradio demo.
+and a local Gradio demo. Both fine-tuned models are published on the
+[Hugging Face Hub](https://huggingface.co/Z-Nadjib).
 
 <p align="center">
-  <img src="docs/assets/features.svg" width="100%" alt="41 clause types, QLoRA on one GPU, always valid JSON, traceable output, measured baselines, ready to publish"/>
+  <img src="docs/assets/features.svg" width="100%" alt="41 clause types, QLoRA on one GPU, always valid JSON, traceable output, measured baselines, published on the Hugging Face Hub"/>
 </p>
 
 ## How it works
@@ -352,38 +357,41 @@ ablation, which uses the first 30 of them.
 
 <p align="center"><img src="docs/assets/divider.svg" width="100%" alt=""/></p>
 
-## Model and demo
+## Models
 
-Two merged models are ready to publish on the Hugging Face Hub, each with its model card:
+Both fine-tuned models are public on the Hugging Face Hub, with the LoRA weights merged into
+16-bit checkpoints and a model card describing training, results and usage.
 
-| Model | Card | License | Use |
-|---|---|---|---|
-| Llama-3.2-3B + QLoRA | [`llama3.2-3b-cuad.md`](model_card/llama3.2-3b-cuad.md) | Llama 3.2 Community License | best quality |
-| Qwen2.5-1.5B + QLoRA | [`qwen2.5-1.5b-cuad.md`](model_card/qwen2.5-1.5b-cuad.md) | Apache 2.0 | faster, used by the demo |
+| Model | Params | Span F1 | License | |
+|---|---|---|---|---|
+| [**Z-Nadjib/Llama-3.2-3B-ClauseLM**](https://huggingface.co/Z-Nadjib/Llama-3.2-3B-ClauseLM) | 3.2B | 61.7 | Llama 3.2 Community License | best quality |
+| [**Z-Nadjib/ClauseLM-Qwen2.5-1.5B**](https://huggingface.co/Z-Nadjib/ClauseLM-Qwen2.5-1.5B) | 1.5B | 57.2 | Apache 2.0 | faster, smaller |
 
-```bash
-export HF_TOKEN=...
-python scripts/push_to_hub.py model --model-dir outputs/llama3.2-3b-cuad/merged \
-    --repo-id <user>/llama3.2-3b-cuad-extractor --card model_card/llama3.2-3b-cuad.md
-python scripts/push_to_hub.py model --model-dir outputs/qwen2.5-1.5b-cuad/merged \
-    --repo-id <user>/qwen2.5-1.5b-cuad-extractor --card model_card/qwen2.5-1.5b-cuad.md
-python scripts/push_to_hub.py space --repo-id <user>/contract-clause-extractor \
-    --model-id <user>/qwen2.5-1.5b-cuad-extractor
+Extract the clauses of a full contract with a published model, with the same windows,
+grammar-constrained decoding and merging as in the evaluation:
+
+```python
+from contract_extractor.inference.base import ChunkedExtractor
+from contract_extractor.inference.hf_backend import HFBackend
+
+backend = HFBackend("Z-Nadjib/Llama-3.2-3B-ClauseLM", constrained=True)
+extractor = ChunkedExtractor(backend, chunk_size=6000, chunk_overlap=600, batch_size=8)
+result = extractor.extract(open("contract.txt").read())
+print(result.extraction["governing_law"])
 ```
 
-The Gradio app ([`app/`](app/)) reads the model id from the `MODEL_ID` variable, splits the
-pasted contract into windows, decodes each window under the JSON Schema grammar and shows the
-merged JSON with a table of the extracted spans. Four CUAD test contracts are bundled as
-examples.
+`make demo` starts a local Gradio app on http://127.0.0.1:7860: paste or upload a contract and
+get the merged JSON with a table of the extracted spans. It loads
+`Z-Nadjib/ClauseLM-Qwen2.5-1.5B` by default; set `MODEL_ID` to use another model or a local
+directory. Four CUAD test contracts are bundled as examples.
 
 ## Project structure
 
 ```
 .
-├── app/                     Gradio demo for Hugging Face Spaces
+├── app/                     local Gradio demo
 ├── configs/                 data, training and evaluation configurations
 ├── docs/assets/             banner, badges and diagrams of this README
-├── model_card/              Hugging Face model cards
 ├── reports/
 │   ├── figures/             result figures
 │   └── results/             metrics per system, summary tables, training summaries
