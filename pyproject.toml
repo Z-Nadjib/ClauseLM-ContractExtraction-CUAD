@@ -23,7 +23,6 @@ dependencies = [
 [project.optional-dependencies]
 train = ["unsloth", "trl", "bitsandbytes", "accelerate"]
 eval = ["pandas", "matplotlib"]
-app = ["gradio"]
 dev = ["pytest", "ruff"]
 
 [tool.setuptools.packages.find]
@@ -32,7 +31,7 @@ where = ["src"]
 [tool.ruff]
 line-length = 120
 target-version = "py310"
-src = ["src", "scripts", "tests", "app"]
+src = ["src", "scripts", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "SIM"]

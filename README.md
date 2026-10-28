@@ -45,8 +45,8 @@ termination rights, restrictive covenants, licences, liability caps, insurance a
 model returns the passages of the contract that belong to it, copied verbatim so that every
 prediction can be traced back to the source text. Everything runs locally on a single 16 GB GPU.
 The repository contains the data pipeline, the QLoRA training code, the grammar-constrained
-inference, the evaluation against zero-shot and BERT baselines, the result tables and figures,
-and a local Gradio demo. Both fine-tuned models are published on the
+inference, the evaluation against zero-shot and BERT baselines, and the result tables and
+figures. Both fine-tuned models are published on the
 [Hugging Face Hub](https://huggingface.co/Z-Nadjib).
 
 <p align="center">
@@ -214,7 +214,6 @@ make merge          # merge the LoRA adapters into 16-bit weights
 make eval-all       # all systems on the 102 test contracts, about 5 hours
 make report         # tables in reports/results, figures in reports/figures
 make test           # unit tests
-make demo           # Gradio demo on http://127.0.0.1:7860
 ```
 
 ### Evaluate one system
@@ -380,16 +379,10 @@ result = extractor.extract(open("contract.txt").read())
 print(result.extraction["governing_law"])
 ```
 
-`make demo` starts a local Gradio app on http://127.0.0.1:7860: paste or upload a contract and
-get the merged JSON with a table of the extracted spans. It loads
-`Z-Nadjib/ClauseLM-Qwen2.5-1.5B` by default; set `MODEL_ID` to use another model or a local
-directory. Four CUAD test contracts are bundled as examples.
-
 ## Project structure
 
 ```
 .
-├── app/                     local Gradio demo
 ├── configs/                 data, training and evaluation configurations
 ├── docs/assets/             banner, badges and diagrams of this README
 ├── reports/

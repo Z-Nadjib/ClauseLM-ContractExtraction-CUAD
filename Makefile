@@ -2,7 +2,7 @@ PYTHON ?= .venv/bin/python
 export PYTHONUNBUFFERED := 1
 LOGS := outputs/logs
 
-.PHONY: setup data train-qwen train-llama train-bert merge eval-all report test lint demo
+.PHONY: setup data train-qwen train-llama train-bert merge eval-all report test lint
 
 setup:
 	python3 -m venv .venv
@@ -43,8 +43,5 @@ test:
 	$(PYTHON) -m pytest -q
 
 lint:
-	$(PYTHON) -m ruff check src scripts tests app
-	$(PYTHON) -m ruff format --check src scripts tests app
-
-demo:
-	PYTHONPATH=src $(PYTHON) app/app.py
+	$(PYTHON) -m ruff check src scripts tests
+	$(PYTHON) -m ruff format --check src scripts tests
